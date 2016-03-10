@@ -62,18 +62,18 @@ function (accessToken, refreshToken, profile, done) {
 // github callback: http://m-oc.github.io/PassportJs/github_callback
 
 // GITHUB LOGIN
-app.get('/login/github', passport.authenticate('github'));
+app.get('/PassportJs/login/github', passport.authenticate('github'));
 
 app.get('/login/github_callback', passport.authenticate('github', {
   successRedirect: '/github/profile',
   failureRedirect: '/github/failure'
 }));
 
-app.get('/github/profile', checkPermission, function (req, res) {
+app.get('/PassportJs/github/profile', checkPermission, function (req, res) {
   res.send(req.user);
 });
 
-app.get('/github/failure', function (req, res) {
+app.get('/PassportJs/github/failure', function (req, res) {
   res.send("Authentication failed.");
 });
 
